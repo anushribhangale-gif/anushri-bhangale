@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anushri Bhangale | Computer Engineering Student & Aspiring Software Developer</title>
+<meta name="description" content="Portfolio of Anushri Prafull Bhangale, a Computer Engineering student at GCE Yavatmal (graduating 2027) seeking software development internships and entry-level roles.">
+<meta name="theme-color" content="#0a1128">
+<style>
+/* ===== Theme ===== */
+:root{
+  --bg:#0a1128; --bg2:#0f1a3a; --card:#111d42; --line:#22305f;
+  --text:#f4f7ff; --muted:#a9b6d8; --accent:#38bdf8; --accent2:#6366f1;
+  --radius:16px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#04101f;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+section{padding:84px 0}
+section:nth-of-type(even){background:linear-gradient(180deg,var(--bg2),var(--bg))}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:10px}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:10px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.lead{color:var(--muted);max-width:720px;margin:18px 0 34px}
+
+/* ===== Nav ===== */
+header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(10,17,40,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.15rem;color:var(--text)}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:6px;list-style:none}
+.links a{color:var(--muted);padding:8px 12px;border-radius:8px;font-size:.95rem}
+.links a:hover{color:var(--text);background:var(--card);text-decoration:none}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;width:44px;height:44px;cursor:pointer}
+.burger svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+/* ===== Buttons ===== */
+.btn{display:inline-block;padding:12px 24px;border-radius:12px;font-weight:600;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101f;box-shadow:0 8px 24px rgba(56,189,248,.25)}
+.btn.ghost{border-color:var(--line);color:var(--text);background:var(--card)}
+.btn.ghost:hover{border-color:var(--accent)}
+
+/* ===== Hero ===== */
+#home{padding-top:150px;min-height:100vh;display:flex;align-items:center;background:
+  radial-gradient(600px 400px at 85% 20%,rgba(99,102,241,.25),transparent 70%),
+  radial-gradient(500px 360px at 10% 90%,rgba(56,189,248,.16),transparent 70%),var(--bg)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+h1{font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.1;margin:10px 0 14px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:560px;margin-bottom:26px}
+.cta,.social{display:flex;flex-wrap:wrap;gap:12px}
+.social{margin-top:24px}
+.social a{color:var(--muted);border:1px solid var(--line);padding:8px 14px;border-radius:10px;font-size:.9rem;display:inline-flex;gap:8px;align-items:center}
+.social a:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.social svg{width:18px;height:18px;fill:currentColor}
+.code{background:#08102a;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden;font-family:ui-monospace,Consolas,monospace;font-size:.88rem}
+.code .bar{display:flex;gap:7px;padding:12px 14px;background:var(--card)}
+.code .bar i{width:11px;height:11px;border-radius:50%;background:#334}
+.code .bar i:nth-child(1){background:#ff5f57}.code .bar i:nth-child(2){background:#febc2e}.code .bar i:nth-child(3){background:#28c840}
+.code pre{padding:18px;white-space:pre-wrap;word-break:break-word;color:#cfe1ff}
+.k{color:#7dd3fc}.s{color:#a5f3a0}.c{color:#6b7bb0}
+
+/* ===== Cards & tags ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.card .label{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:700;margin-top:10px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tag{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.35);color:#cfeeff;padding:5px 12px;border-radius:999px;font-size:.85rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.about p{color:var(--muted);margin-bottom:14px}
+.about ul{list-style:none}
+.about li{padding:10px 0 10px 26px;position:relative;color:var(--muted);border-bottom:1px solid var(--line)}
+.about li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+.edu{border-left:3px solid var(--accent);padding-left:22px}
+.edu h3{font-size:1.25rem}.edu p{color:var(--muted)}
+.contact{text-align:center}
+.contact h2::after{margin-left:auto;margin-right:auto}
+.contact .lead{margin-left:auto;margin-right:auto}
+.contact .cta,.contact .social{justify-content:center}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:.9rem}
+.foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+.foot nav{height:auto;gap:16px}
+.note{color:var(--muted);font-size:.9rem;font-style:italic}
+
+/* ===== Responsive ===== */
+@media(max-width:860px){
+  .hero,.about{grid-template-columns:1fr}
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 22px 18px}
+  .links.open{display:flex}
+  .links a{display:block;padding:12px}
+  section{padding:64px 0}
+  #home{padding-top:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <nav class="wrap" aria-label="Main navigation">
+    <a class="logo" href="#home" id="logo"></a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="links">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- HOME -->
+  <section id="home" aria-labelledby="hero-name">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow" id="h-eyebrow"></p>
+        <h1 id="hero-name"></h1>
+        <p id="h-intro"></p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View My Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+        </div>
+        <div class="social" id="h-social"></div>
+      </div>
+      <div class="code" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <pre id="h-code"></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h">About Me</h2>
+      <div class="about">
+        <div id="about-text"></div>
+        <ul id="about-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <h2 id="skills-h">Technical Skills</h2>
+      <p class="lead">Technologies I have worked with in my projects and coursework.</p>
+      <div class="grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <h2 id="projects-h">Featured Projects</h2>
+      <p class="lead">Projects where I applied what I have been learning.</p>
+      <div class="grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" aria-labelledby="edu-h">
+    <div class="wrap">
+      <h2 id="edu-h">Education</h2>
+      <div class="edu" id="edu-box" style="margin-top:28px"></div>
+      <div id="extra-box"></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS (internships & certifications appear here only when filled in CONFIG) -->
+  <section id="achievements" aria-labelledby="ach-h">
+    <div class="wrap">
+      <h2 id="ach-h">Achievements &amp; Leadership</h2>
+      <div class="grid" id="ach-grid" style="margin-top:30px"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Get In Touch</h2>
+      <p class="lead">I am looking for internships and entry-level software development opportunities. Feel free to reach out by email or connect with me online.</p>
+      <div class="cta" style="margin-bottom:6px">
+        <a class="btn primary" id="mail-btn" href="#">Email Me</a>
+      </div>
+      <p class="note" id="mail-text" style="margin-top:14px"></p>
+      <div class="social" id="c-social"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span id="foot-text"></span>
+    <nav aria-label="Footer links" id="foot-links"></nav>
+    <a href="#home">↑ Back to top</a>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   EDIT YOUR DETAILS HERE. The whole page is generated from this object.
+   - Leave a list empty ([]) or a string empty ("") to hide that item/section.
+   - Add repo links in each project's "github" field when ready.
+   ===================================================================== */
+const CONFIG = {
+  name: "Anushri Prafull Bhangale",
+  shortName: "Anushri Bhangale",
+  title: "Computer Engineering Student | Aspiring Software Developer",
+  college: "Government College of Engineering, Yavatmal",
+  gradYear: "2027",
+  degree: "Bachelor of Engineering, Computer Engineering",
+  cgpa: "",                       // e.g. "8.5 CGPA" (hidden if empty)
+  location: "Yavatmal, Maharashtra, India",
+  email: "anushribhangale@gmail.com",
+  linkedin: "https://www.linkedin.com/in/anushri-bhangale-9437283b8/",
+  github: "https://github.com/anushribhangale-gif",
+  resume: "",                     // add a link to enable the Resume button
+
+  skills: {
+    "Programming Languages": ["Python", "Java"],
+    "Web Development": ["Next.js", "Tailwind CSS"],
+    "Backend & Database": ["Firebase"],
+    "AI & Integration": ["Gemini AI", "API Integration"]
+  },
+
+  projects: [
+    {
+      title: "CareCycle: Menstrual Wellness Platform",
+      problem: "Helps users understand and manage their menstrual health in one place.",
+      description: "A wellness platform with secure Firebase authentication, period tracking, symptom logging, monthly cycle summaries and self-care tracking. Gemini AI is integrated to provide wellness suggestions.",
+      tech: ["Next.js", "Firebase", "Tailwind CSS", "Gemini AI"],
+      github: "",                 // paste the repository URL here
+      demo: ""                    // paste the live demo URL here
+    },
+    {
+      title: "Student Management System",
+      problem: "Simplifies keeping and managing student records.",
+      description: "A Java application built with object-oriented programming to add, update, delete, search and display student records.",
+      tech: ["Java", "OOP"],
+      github: "",
+      demo: ""
+    },
+    {
+      title: "Personal Expense Tracker",
+      problem: "Makes it easier to see where money is being spent.",
+      description: "A Python application that categorizes expenses, maintains a transaction history and calculates total spending.",
+      tech: ["Python"],
+      github: "",
+      demo: ""
+    }
+  ],
+
+  internships: [],                // e.g. { role:"", company:"", period:"", details:"" }
+  certifications: [],             // e.g. { name:"", issuer:"", year:"" }
+
+  achievements: [
+    {
+      title: "FinShield Hackathon 2025: Shortlisted for Phase 2",
+      text: "Organized by Bank of India in association with IIT Hyderabad. Worked on impersonation fraud prevention, behavior-based authentication and passwordless login for digital banking."
+    },
+    {
+      title: "ReImagine National-Level Web Development Hackathon",
+      text: "Participated in September 2024, conducted by Sheryians Coding School."
+    },
+    {
+      title: "Vice Girl Captain, Jawahar Navodaya Vidyalaya",
+      text: "Supported student coordination, school activities, discipline and communication."
+    }
+  ]
+};
+
+/* ============================ Rendering ============================ */
+const $ = id => document.getElementById(id);
+
+// Safe element builder (uses textContent, so no HTML injection)
+function el(tag, props = {}, kids = []) {
+  const n = document.createElement(tag);
+  for (const k in props) {
+    if (k === "text") n.textContent = props[k];
+    else if (k === "class") n.className = props[k];
+    else n.setAttribute(k, props[k]);
+  }
+  (Array.isArray(kids) ? kids : [kids]).forEach(c => c && n.appendChild(c));
+  return n;
+}
+function ext(href, text, cls) {
+  return el("a", { href, text, target: "_blank", rel: "noopener noreferrer", ...(cls ? { class: cls } : {}) });
+}
+
+const ICONS = {
+  github: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.700 0-1.300.5-2.300 1.200-3.100-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0c2.200-1.500 3.200-1.200 3.200-1.200.6 1.600.2 2.800.1 3.100.8.8 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.4.8 1.100.8 2.200v3.300c0 .4.2.7.8.6A11.500 11.500 0 0 0 23.500 12 11.500 11.500 0 0 0 12 .5z"/></svg>',
+  linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.600h.1c.5-1 1.800-2 3.800-2 4 0 4.800 2.600 4.800 6V21h-4v-5.100c0-1.200 0-2.800-1.700-2.800s-2 1.300-2 2.700V21h-4z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7L4 7.500V17h16V7.500z"/></svg>',
+  file: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v14H6zM13 3.500V9h5.500z"/></svg>'
+};
+
+function socialLinks(container, withMail) {
+  const items = [
+    [CONFIG.github, "GitHub", ICONS.github, true],
+    [CONFIG.linkedin, "LinkedIn", ICONS.linkedin, true],
+    [CONFIG.resume, "Resume", ICONS.file, true],
+    [withMail && CONFIG.email ? "mailto:" + CONFIG.email : "", "Email", ICONS.mail, false]
+  ];
+  items.forEach(([href, label, icon, external]) => {
+    if (!href) return;
+    const a = el("a", { href, "aria-label": label });
+    if (external) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+    a.innerHTML = icon;                       // trusted inline SVG only
+    a.appendChild(document.createTextNode(label));
+    container.appendChild(a);
+  });
+}
+
+/* Page title & nav logo */
+document.title = CONFIG.shortName + " | " + CONFIG.title;
+const logo = $("logo");
+logo.append(document.createTextNode("<"), el("span", { text: CONFIG.shortName.split(" ")[0] }), document.createTextNode(" />"));
+
+/* Hero */
+$("h-eyebrow").textContent = "Hello, I'm";
+const nameParts = CONFIG.name.split(" ");
+$("hero-name").append(document.createTextNode(nameParts.slice(0, -1).join(" ") + " "), el("em", { text: nameParts.slice(-1)[0] }));
+$("h-intro").textContent = CONFIG.title + ". I am a Computer Engineering student at " + CONFIG.college +
+  " (graduating " + CONFIG.gradYear + "), looking for software development internships and entry-level roles where I can build useful products and keep learning.";
+socialLinks($("h-social"), false);
+$("h-code").innerHTML =
+  '<span class="c">// profile.js</span>\n' +
+  '<span class="k">const</span> developer = {\n' +
+  '  name: <span class="s">"' + CONFIG.shortName + '"</span>,\n' +
+  '  role: <span class="s">"Aspiring Software Developer"</span>,\n' +
+  '  college: <span class="s">"GCE Yavatmal"</span>,\n' +
+  '  graduating: <span class="s">"' + CONFIG.gradYear + '"</span>,\n' +
+  '  languages: [<span class="s">"Python"</span>, <span class="s">"Java"</span>],\n' +
+  '  web: [<span class="s">"Next.js"</span>, <span class="s">"Tailwind CSS"</span>],\n' +
+  '  seeking: <span class="s">"Internships & entry-level roles"</span>\n};';
+
+/* About */
+const aboutText = $("about-text");
+[
+  "I am a Computer Engineering student at " + CONFIG.college + ", based in " + CONFIG.location + ", and I plan to graduate in " + CONFIG.gradYear + ". I enjoy turning ideas into working software, from console applications in Python and Java to web applications built with Next.js and Firebase.",
+  "My projects range from a student record management system to CareCycle, a wellness platform that integrates Gemini AI. I like learning by building, and I approach problems by breaking them into smaller parts and testing each part as I go.",
+  "My goal is to start my career as a software developer, contribute to a team and keep growing my technical skills. I have also taken on leadership responsibilities as Vice Girl Captain at Jawahar Navodaya Vidyalaya."
+].forEach(t => aboutText.appendChild(el("p", { text: t })));
+[
+  "Interested in web development and AI-powered applications",
+  "Experience with API integration and Firebase authentication",
+  "Shortlisted for Phase 2 of FinShield Hackathon 2025",
+  "Open to internships and entry-level software roles"
+].forEach(t => $("about-list").appendChild(el("li", { text: t })));
+
+/* Skills */
+const skillsGrid = $("skills-grid");
+Object.entries(CONFIG.skills).forEach(([cat, list]) => {
+  if (!list.length) return;
+  skillsGrid.appendChild(el("article", { class: "card" }, [
+    el("h3", { text: cat }),
+    el("div", { class: "tags" }, list.map(s => el("span", { class: "tag", text: s })))
+  ]));
+});
+
+/* Projects */
+const pg = $("projects-grid");
+CONFIG.projects.forEach(p => {
+  const links = el("div", { class: "cta", style: "margin-top:14px" });
+  if (p.github) links.appendChild(ext(p.github, "GitHub", "btn ghost"));
+  if (p.demo) links.appendChild(ext(p.demo, "Live Demo", "btn primary"));
+  pg.appendChild(el("article", { class: "card" }, [
+    el("h3", { text: p.title }),
+    el("div", { class: "label", text: "Problem" }),
+    el("p", { text: p.problem }),
+    el("div", { class: "label", text: "Overview" }),
+    el("p", { text: p.description }),
+    el("div", { class: "tags" }, p.tech.map(t => el("span", { class: "tag", text: t }))),
+    links.children.length ? links : null
+  ]));
+});
+if (!CONFIG.projects.some(p => p.github)) {
+  const note = el("p", { class: "note", style: "margin-top:24px" });
+  note.append(document.createTextNode("More of my work is on my "), ext(CONFIG.github, "GitHub profile"), document.createTextNode("."));
+  $("projects-grid").after(note);
+}
+
+/* Education */
+const eb = $("edu-box");
+eb.appendChild(el("h3", { text: CONFIG.degree }));
+eb.appendChild(el("p", { text: CONFIG.college }));
+eb.appendChild(el("p", { text: "Expected graduation: " + CONFIG.gradYear }));
+if (CONFIG.cgpa) eb.appendChild(el("p", { text: CONFIG.cgpa }));
+
+/* Internships & certifications (shown only if filled in) */
+const extra = $("extra-box");
+if (CONFIG.internships.length) {
+  extra.appendChild(el("h3", { text: "Internships", style: "margin:34px 0 14px" }));
+  const g = el("div", { class: "grid" });
+  CONFIG.internships.forEach(i => g.appendChild(el("article", { class: "card" }, [
+    el("h3", { text: i.role + (i.company ? " at " + i.company : "") }),
+    el("p", { text: i.period || "" }), el("p", { text: i.details || "" })
+  ])));
+  extra.appendChild(g);
+}
+if (CONFIG.certifications.length) {
+  extra.appendChild(el("h3", { text: "Certifications", style: "margin:34px 0 14px" }));
+  const g = el("div", { class: "grid" });
+  CONFIG.certifications.forEach(c => g.appendChild(el("article", { class: "card" }, [
+    el("h3", { text: c.name }), el("p", { text: [c.issuer, c.year].filter(Boolean).join(" · ") })
+  ])));
+  extra.appendChild(g);
+}
+
+/* Achievements */
+CONFIG.achievements.forEach(a => $("ach-grid").appendChild(
+  el("article", { class: "card" }, [el("h3", { text: a.title }), el("p", { text: a.text })])
+));
+
+/* Contact */
+if (CONFIG.email) {
+  $("mail-btn").href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Opportunity for " + CONFIG.shortName);
+  $("mail-text").textContent = CONFIG.email;
+} else { $("mail-btn").hidden = true; }
+socialLinks($("c-social"), false);
+
+/* Footer */
+$("foot-text").textContent = "© " + new Date().getFullYear() + " " + CONFIG.name;
+const fl = $("foot-links");
+[[CONFIG.github, "GitHub"], [CONFIG.linkedin, "LinkedIn"], [CONFIG.email ? "mailto:" + CONFIG.email : "", "Email"]]
+  .forEach(([h, t]) => { if (h) fl.appendChild(h.startsWith("mailto") ? el("a", { href: h, text: t }) : ext(h, t)); });
+
+/* Mobile menu */
+const burger = $("burger"), links = $("links");
+function closeMenu() { links.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }
+burger.addEventListener("click", () => {
+  const open = links.classList.toggle("open");
+  burger.setAttribute("aria-expanded", String(open));
+});
+links.addEventListener("click", e => { if (e.target.tagName === "A") closeMenu(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+</script>
+</body>
+</html>
